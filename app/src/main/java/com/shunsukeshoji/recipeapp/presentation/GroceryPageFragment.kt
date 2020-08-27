@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shunsukeshoji.recipeapp.R
@@ -49,13 +50,18 @@ class GroceryPageFragment : Fragment(R.layout.fragment_grocery_page) {
                     spanSizeLookup = groupAdapter.spanSizeLookup
                 }
 
-            val items = baseElement.content.map { name ->
-                StatefulButtonItem(name, false) { isSelected ->
-                    viewModel.onSelectItem(name, isSelected)
-                }
-            }
 
-            groupAdapter.update(items)
+            viewModel.uiModel.observe(viewLifecycleOwner, Observer {
+                val items =
+                    it.list.find { element -> element.groupName == baseElement.title }?.nameWithState?.map { entry ->
+                        StatefulButtonItem(entry.key, entry.value) { isSelected ->
+                            viewModel.onSelectItem(entry.key, isSelected)
+                        }
+                    } ?: listOf()
+
+                groupAdapter.update(items)
+            })
+
         }
     }
 }

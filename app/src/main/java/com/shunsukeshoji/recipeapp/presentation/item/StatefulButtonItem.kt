@@ -10,8 +10,7 @@ class StatefulButtonItem(
     val title: String,
     val state: Boolean,
     val onClick: (Boolean) -> Unit
-) :
-    BindableItem<ItemStatefulButtonBinding>(title.hashCode().toLong()) {
+) : BindableItem<ItemStatefulButtonBinding>(title.hashCode().toLong()) {
 
     override fun initializeViewBinding(view: View): ItemStatefulButtonBinding =
         ItemStatefulButtonBinding.bind(view)

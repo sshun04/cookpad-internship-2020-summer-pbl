@@ -14,10 +14,10 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:text="料理"
-        android:textColor="@drawable/stateful_text_color_style"
+        android:textColor="@color/stateful_text_color_style"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:backgroundTint="@drawable/stateful_button_style"
+        app:backgroundTint="@color/stateful_button_style"
         app:cornerRadius="8dp"
         app:strokeColor="#dadada"
         app:strokeWidth="1dp" />

@@ -21,12 +21,19 @@ class GroceryHomeFragment : Fragment(R.layout.fragment_grocery_home) {
                     requireActivity(),
                     groceryList
                 )
+
             viewPager.apply {
                 adapter = pagerAdapter
             }
+
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
                 tab.text = groceryList[position].title
             }.attach()
+
+            searchRecipeButton.setOnClickListener {
+                viewModel.searchRecipe()
+            }
+
         }
     }
 }
