@@ -1,7 +1,6 @@
 package com.shunsukeshoji.recipeapp.presentation
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +15,7 @@ class GroceryViewModel(application: Application) : AndroidViewModel(application)
 
     data class UiModel(
         val list: List<GroceryModel>,
-        val isNextActionEnable:Boolean
+        val isNextActionEnable: Boolean
     )
 
     data class GroceryModel(
@@ -29,7 +28,7 @@ class GroceryViewModel(application: Application) : AndroidViewModel(application)
 
     val uiModel: LiveData<UiModel> =
         combine(
-            UiModel(listOf(),false),
+            UiModel(listOf(), false),
             selectedGroceryList,
             groceryLiveData
         )
@@ -51,7 +50,7 @@ class GroceryViewModel(application: Application) : AndroidViewModel(application)
 
             UiModel(
                 result,
-               isNextActionEnable
+                isNextActionEnable
             )
         }
 
@@ -70,9 +69,8 @@ class GroceryViewModel(application: Application) : AndroidViewModel(application)
         selectedGroceryList.value = current
     }
 
-    fun searchRecipe() {
-        Log.d("GroceryViewModel", uiModel.requireValue().list.toString())
-    }
+    fun requireFilterList(): List<String> = selectedGroceryList.requireValue()
+
 
     fun getGroceryList() = groceryDataRepository.fetchAllGroceryList()
 }

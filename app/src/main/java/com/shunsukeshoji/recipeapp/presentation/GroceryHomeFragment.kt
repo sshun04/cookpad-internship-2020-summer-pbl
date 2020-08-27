@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shunsukeshoji.recipeapp.GroceryFragmentStateAdapter
 import com.shunsukeshoji.recipeapp.R
@@ -31,7 +32,11 @@ class GroceryHomeFragment : Fragment(R.layout.fragment_grocery_home) {
             }.attach()
 
             searchRecipeButton.setOnClickListener {
-                viewModel.searchRecipe()
+                findNavController().navigate(
+                    GroceryHomeFragmentDirections.actionGroceryHomeFragmentToRecipeListFragment(
+                        viewModel.requireFilterList().toTypedArray()
+                    )
+                )
             }
 
         }

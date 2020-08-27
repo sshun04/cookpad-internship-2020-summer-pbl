@@ -9,5 +9,18 @@
         android:id="@+id/groceryHomeFragment"
         android:name="com.shunsukeshoji.recipeapp.presentation.GroceryHomeFragment"
         android:label="GroceryHomeFragment"
-        tools:layout="@layout/fragment_grocery_home" />
+        tools:layout="@layout/fragment_grocery_home" >
+        <action
+            android:id="@+id/action_groceryHomeFragment_to_recipeListFragment"
+            app:destination="@id/recipeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeListFragment"
+        android:name="com.shunsukeshoji.recipeapp.presentation.RecipeListFragment"
+        android:label="RecipeListFragment"
+        tools:layout="@layout/fragment_recipe_list" >
+        <argument
+            android:name="filter"
+            app:argType="string[]" />
+    </fragment>
 </navigation>
