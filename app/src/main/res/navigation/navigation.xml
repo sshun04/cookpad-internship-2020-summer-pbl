@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/groceryHomeFragment">
+
+    <fragment
+        android:id="@+id/groceryHomeFragment"
+        android:name="com.shunsukeshoji.recipeapp.presentation.GroceryHomeFragment"
+        android:label="GroceryHomeFragment"
+        tools:layout="@layout/fragment_grocery_home" />
+</navigation>
