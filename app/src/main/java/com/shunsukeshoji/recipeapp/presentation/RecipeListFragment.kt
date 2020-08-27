@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,7 +44,10 @@ class RecipeListFragment : Fragment(R.layout.fragment_recipe_list) {
                     RecipeItem(
                         recipe
                     ) { id ->
-
+                        findNavController().navigate(
+                            RecipeListFragmentDirections
+                                .actionRecipeListFragmentToRecipeDetailActivity(id)
+                        )
                     }
                 }
                 groupAdapter.update(items)

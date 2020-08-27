@@ -22,5 +22,17 @@
         <argument
             android:name="filter"
             app:argType="string[]" />
+        <action
+            android:id="@+id/action_recipeListFragment_to_recipeDetailActivity"
+            app:destination="@id/recipeDetailActivity" />
     </fragment>
+    <activity
+        android:id="@+id/recipeDetailActivity"
+        android:name="com.shunsukeshoji.recipeapp.presentation.RecipeDetailActivity"
+        android:label="activity_recipe_detail"
+        tools:layout="@layout/activity_recipe_detail" >
+        <argument
+            android:name="recipeId"
+            app:argType="integer" />
+    </activity>
 </navigation>
