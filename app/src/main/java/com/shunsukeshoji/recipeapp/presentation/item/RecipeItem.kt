@@ -2,6 +2,7 @@ package com.shunsukeshoji.recipeapp.presentation.item
 
 import android.view.View
 import coil.api.load
+import coil.transform.RoundedCornersTransformation
 import com.shunsukeshoji.recipeapp.R
 import com.shunsukeshoji.recipeapp.databinding.ItemRecipeBinding
 import com.shunsukeshoji.recipeapp.model.Recipe
@@ -15,7 +16,9 @@ data class RecipeItem(val recipe: Recipe, val onClick: (Int) -> Unit) :
 
     override fun bind(viewBinding: ItemRecipeBinding, position: Int) {
         with(viewBinding) {
-            thumbnail.load(recipe.imageUrl)
+            thumbnail.load(recipe.imageUrl){
+                transformations(RoundedCornersTransformation(topRight = 12f, topLeft = 12f, bottomLeft =  12f, bottomRight =  12f))
+            }
             recipeTitle.text = recipe.title
             difficultyRateBar.rating = recipe.difficulty.toFloat()
 
