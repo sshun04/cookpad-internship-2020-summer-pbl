@@ -6,8 +6,8 @@ class RecipeList(val list: List<Recipe>) : List<Recipe> by list {
         val filteredList = filter { recipe ->
             difficulty.contains(recipe.difficulty)
         }.filter { recipe ->
-//            recipe.ingredients.containsAll(ingredient)
-            recipe.ingredients.any { ingredient.contains(it) }
+            recipe.ingredients.containsAll(ingredient)
+//            recipe.ingredients.any { ingredient.contains(it) }
         }
         return RecipeList(filteredList)
     }
