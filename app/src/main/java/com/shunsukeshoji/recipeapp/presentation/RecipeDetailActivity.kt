@@ -44,13 +44,6 @@ class RecipeDetailActivity : AppCompatActivity() {
 
     }
 
-    private fun setupRecipeWebViewClient(
-        binding: ActivityRecipeDetailBinding,
-        url: String,
-        client: WebViewClient
-    ) {
-    }
-
     class RecipeWebViewClient(private val callback: (url: Uri) -> Unit) : WebViewClient() {
         override fun shouldOverrideUrlLoading(
             view: WebView?,
